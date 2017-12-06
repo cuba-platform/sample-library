@@ -31,7 +31,7 @@ public class App extends com.haulmont.cuba.desktop.App {
     
     @Override
     protected String getDefaultAppComponents() {
-        return "com.haulmont.cuba com.haulmont.reports";
+        return "com.haulmont.cuba";
     }
     
     @Override
