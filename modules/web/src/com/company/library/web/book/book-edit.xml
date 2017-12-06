@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.library.web.book.BookEdit"
+        datasource="bookDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.library.web.book">
+    <dsContext>
+        <datasource id="bookDs"
+                    class="com.company.library.entity.Book"
+                    view="book.edit">
+            <collectionDatasource id="authorsDs"
+                                  property="authors"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="bookDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="literatureType"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="authorsBox"
+                  caption="msg://com.company.library.entity/Book.authors">
+            <table id="authorsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="add"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="firstName"/>
+                    <column id="middleName"/>
+                    <column id="lastName"/>
+                </columns>
+                <rows datasource="authorsDs"/>
+                <buttonsPanel>
+                    <button action="authorsTable.add"/>
+                    <button action="authorsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

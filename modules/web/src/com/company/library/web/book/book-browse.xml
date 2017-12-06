@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.library.web.book.BookBrowse"
+        focusComponent="booksTable"
+        lookupComponent="booksTable"
+        messagesPack="com.company.library.web.book">
+    <dsContext>
+        <groupDatasource id="booksDs"
+                         class="com.company.library.entity.Book"
+                         view="book.browse">
+            <query>
+                <![CDATA[select e from library$Book e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="booksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="booksTable"
+                datasource="booksDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="booksTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="literatureType"/>
+            </columns>
+            <rows datasource="booksDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="booksTable.create"/>
+                <button id="editBtn"
+                        action="booksTable.edit"/>
+                <button id="removeBtn"
+                        action="booksTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

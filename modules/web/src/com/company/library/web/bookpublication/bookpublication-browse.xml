@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2017 Haulmont
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.library.web.bookpublication.BookPublicationBrowse"
+        lookupComponent="bookPublicationTable"
+        messagesPack="com.company.library.web.bookpublication">
+    <dsContext>
+        <groupDatasource id="bookPublicationDs"
+                         class="com.company.library.entity.BookPublication"
+                         view="bookPublication.full">
+            <query>
+                <![CDATA[select e from library$BookPublication e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <actions>
+        <action id="browseInstances"
+                caption="msg://browseInstances"
+                invoke="browseInstances"/>
+    </actions>
+    <layout expand="bookPublicationTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="bookPublicationDs"
+                margin="false,false,true,false">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="bookPublicationTable"
+                    width="100%">
+            <rows datasource="bookPublicationDs"/>
+            <columns>
+                <column id="book"/>
+                <column id="publisher"/>
+                <column id="year">
+                    <formatter class="com.company.library.web.bookpublication.YearFormatter"/>
+                </column>
+                <column id="town"/>
+            </columns>
+            <rowsCount/>
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="browseInstances"
+                        action="browseInstances"/>
+                <button id="createBtn"
+                        action="bookPublicationTable.create"/>
+                <button id="editBtn"
+                        action="bookPublicationTable.edit"/>
+                <button id="removeBtn"
+                        action="bookPublicationTable.remove"/>
+                <button id="excelBtn"
+                        action="bookPublicationTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

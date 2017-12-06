@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2017 Haulmont
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="library$Author.lookup"
+            template="com/company/library/web/author/author-browse.xml"/>
+    <screen id="library$Author.edit"
+            template="com/company/library/web/author/author-edit.xml"/>
+    <screen id="library$Book.lookup"
+            template="com/company/library/web/book/book-browse.xml"/>
+    <screen id="library$Book.edit"
+            template="com/company/library/web/book/book-edit.xml"/>
+    <screen id="library$BookInstance.lookup"
+            template="com/company/library/web/bookinstance/bookinstance-browse.xml"/>
+    <screen id="library$BookInstance.edit"
+            template="com/company/library/web/bookinstance/bookinstance-edit.xml"/>
+    <screen id="library$BookPublication.lookup"
+            template="com/company/library/web/bookpublication/bookpublication-browse.xml"/>
+    <screen id="library$BookPublication.edit"
+            template="com/company/library/web/bookpublication/bookpublication-edit.xml"/>
+    <screen id="library$LibraryDepartment.lookup"
+            template="com/company/library/web/librarydepartment/librarydepartment-browse.xml"/>
+    <screen id="library$LibraryDepartment.edit"
+            template="com/company/library/web/librarydepartment/librarydepartment-edit.xml"/>
+    <screen id="library$LiteratureType.lookup"
+            template="com/company/library/web/literaturetype/literaturetype-browse.xml"/>
+    <screen id="library$LiteratureType.edit"
+            template="com/company/library/web/literaturetype/literaturetype-edit.xml"/>
+    <screen id="library$Publisher.lookup"
+            template="com/company/library/web/publisher/publisher-browse.xml"/>
+    <screen id="library$Publisher.edit"
+            template="com/company/library/web/publisher/publisher-edit.xml"/>
+    <screen id="library$Town.lookup"
+            template="com/company/library/web/town/town-browse.xml"/>
+    <screen id="library$Town.edit"
+            template="com/company/library/web/town/town-edit.xml"/>
+    <screen id="department-assigning"
+            template="com/company/library/web/department_assigning/department-assigning.xml"/>
+    <screen id="accession-register"
+            template="com/company/library/web/accession/accession-register.xml"/>
+    <screen id="library$Book.browse"
+            template="com/company/library/web/book/book-browse.xml"/>
+</screen-config>

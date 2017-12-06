@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2017 Haulmont
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.library.web.bookpublication.BookPublicationEdit"
+        datasource="bookPublicationDs"
+        messagesPack="com.company.library.web.bookpublication">
+    <dsContext>
+        <datasource id="bookPublicationDs"
+                    class="com.company.library.entity.BookPublication"
+                    view="bookPublication.full"/>
+        <collectionDatasource id="townsDs"
+                              class="com.company.library.entity.Town"
+                              view="_local">
+            <query>
+                <![CDATA[select e from library$Town e order by e.name]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="publishersDs"
+                              class="com.company.library.entity.Publisher"
+                              view="_local">
+            <query>
+                <![CDATA[select e from library$Publisher e order by e.name]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="booksDs"
+                              class="com.company.library.entity.Book"
+                              view="book.browse">
+            <query>
+                <![CDATA[select e from library$Book e order by e.name]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="windowActions"
+            margin="true"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="bookPublicationDs">
+            <field property="book"
+                   optionsDatasource="booksDs"
+                   required="true"
+                   width="250px"/>
+            <field property="publisher"
+                   optionsDatasource="publishersDs"
+                   required="true"
+                   width="250px"/>
+            <field property="year"
+                   width="250px">
+                <formatter class="com.company.library.web.bookpublication.YearFormatter"/>
+            </field>
+            <field property="town"
+                   optionsDatasource="townsDs"
+                   width="250px"/>
+        </fieldGroup>
+        <frame id="windowActions"
+                screen="editWindowActions"/>
+    </layout>
+</window>

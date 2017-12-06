@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2017 Haulmont
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.library.entity.Book"
+          name="book.browse">
+        <property name="name"/>
+        <property name="literatureType"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.library.entity.Book"
+          name="book.edit">
+        <property name="name"/>
+        <property name="literatureType"
+                  view="_minimal">
+        </property>
+        <property name="authors">
+            <property name="firstName"/>
+            <property name="middleName"/>
+            <property name="lastName"/>
+        </property>
+    </view>
+    <view class="com.company.library.entity.BookInstance"
+          name="bookInstance.browse">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="bookPublication">
+            <property name="book"
+                      view="_minimal"/>
+        </property>
+        <property name="libraryDepartment"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.company.library.entity.BookInstance"
+          name="bookInstance.edit">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="bookPublication">
+            <property name="book"
+                      view="_minimal"/>
+        </property>
+        <property name="libraryDepartment"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.company.library.entity.BookInstance"
+          name="bookInstance.accession">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="bookPublication">
+            <property name="book"
+                      view="_minimal"/>
+        </property>
+        <property name="libraryDepartment"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.library.entity.BookInstance"
+          name="bookInstance.assignLibraryDepartment">
+        <property name="isReference"/>
+        <property name="inventoryNumber"/>
+        <property name="libraryDepartment"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.library.entity.BookPublication"
+          extends="_local"
+          name="bookPublication.full">
+        <property name="book"
+                  view="_minimal"/>
+        <property name="publisher"
+                  view="_minimal"/>
+        <property name="town"
+                  view="_minimal"/>
+    </view>
+</views>
