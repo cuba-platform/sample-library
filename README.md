@@ -10,6 +10,6 @@ The Library showcase contains:
 -	Custom screens
 -	Both web and desktop representations of the UI generated from the same layout
 -	Simple business logic implemented on a middleware tier
--	Reporting module with sample reports 
+-	Reporting module with [sample reports](https://doc.cuba-platform.com/reporting-latest/example_xls.html)
 
 Based on CUBA Platform 6.7.3
