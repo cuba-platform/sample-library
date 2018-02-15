@@ -16,7 +16,7 @@
  */
 
 buildscript {
-    ext.cubaVersion = '6.7.6'
+    ext.cubaVersion = '6.8.1'
     repositories {
         
         maven {
@@ -37,7 +37,7 @@ def globalModule = project(':app-global')
 def coreModule = project(':app-core')
 def guiModule = project(':app-gui')
 def webModule = project(':app-web')
-def desktopModule = project(':app-desktop')
+
 
 def servletApi = 'org.apache.tomcat:tomcat-servlet-api:8.0.26'
 
@@ -63,7 +63,7 @@ dependencies {
 
 def hsql = 'org.hsqldb:hsqldb:2.2.9'
 
-configure([globalModule, coreModule, guiModule, webModule, desktopModule]) {
+configure([globalModule, coreModule, guiModule, webModule]) {
     apply(plugin: 'java')
     apply(plugin: 'maven')
     apply(plugin: 'idea')
@@ -199,40 +199,6 @@ configure(webModule) {
     }
 }
 
-configure(desktopModule) {
-    apply(plugin: 'application')
-    mainClassName = 'com.company.library.desktop.App'
-
-    dependencies {
-        compile(guiModule)
-        
-    }
-    assemble.dependsOn = [ classes ]
-
-    jar {
-        manifest {
-            attributes("Permissions": "all-permissions")
-        }
-    }
-
-    installDist {
-        into("${projectDir}/../../deploy/" + applicationName)
-    }
-
-    task deploy(dependsOn: installDist)
-
-    task createWebStart(dependsOn: [assemble, jar], type: CubaWebStartCreation) {
-        signJarsKeystore = "${projectDir}/webstart/sign-jars-keystore.jks"
-        signJarsAlias = 'signJars'
-        signJarsPassword = 'HaulmontSignJars'
-        indexFileName = "${projectDir}/webstart/index.html"
-        basePath = 'app-webstart'
-    }
-
-    task deployWebStart(dependsOn: createWebStart, type: CubaWebStartDeployment) {
-        basePath = 'app-webstart'
-    }
-}
 
 
 
@@ -242,7 +208,7 @@ task undeploy(type: Delete, dependsOn: ':app-web:cleanConf') {
     delete("$cuba.tomcat.dir/shared")
     delete("$cuba.tomcat.dir/webapps/app-core")
     delete("$cuba.tomcat.dir/webapps/app")
-    delete("$cuba.tomcat.dir/webapps/app-webstart")
+
 }
 
 task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], description: 'Redeploys applications and restarts local Tomcat') {
@@ -257,7 +223,7 @@ task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], descrip
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.4'
+    gradleVersion = '4.3.1'
 }
 
 apply from: 'extra.gradle'

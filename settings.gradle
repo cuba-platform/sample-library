@@ -15,9 +15,8 @@
  */
 
 rootProject.name = 'sample-library'
-include(':app-global', ':app-core', ':app-gui', ':app-web', ':app-desktop')
+include(':app-global', ':app-core', ':app-gui', ':app-web')
 project(':app-global').projectDir = new File(settingsDir, 'modules/global')
 project(':app-core').projectDir = new File(settingsDir, 'modules/core')
 project(':app-gui').projectDir = new File(settingsDir, 'modules/gui')
 project(':app-web').projectDir = new File(settingsDir, 'modules/web')
-project(':app-desktop').projectDir = new File(settingsDir, 'modules/desktop')
