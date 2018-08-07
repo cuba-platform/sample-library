@@ -13,3 +13,6 @@ The Library showcase contains:
 -	Reporting module with [sample reports](https://doc.cuba-platform.com/reporting-latest/example_xls.html)
 
 Based on CUBA Platform 6.9.1
+
+## Issues
+Please use https://www.cuba-platform.com/discuss for discussion, support, and reporting problems coressponding to this sample.
