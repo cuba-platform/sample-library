@@ -12,7 +12,7 @@ The Library showcase contains:
 -	Simple business logic implemented on a middleware tier
 -	Reporting module with [sample reports](https://doc.cuba-platform.com/reporting-latest/example_xls.html)
 
-Based on CUBA Platform 6.9.1
+Based on CUBA Platform 6.10.1
 
 ## Issues
 Please use https://www.cuba-platform.com/discuss for discussion, support, and reporting problems coressponding to this sample.
