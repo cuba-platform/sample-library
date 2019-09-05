@@ -1,3 +1,5 @@
+**ATTENTION! This sample is built for outdated platform version. See [sample-library-cuba7](https://github.com/cuba-platform/sample-library-cuba7) for the latest version.**
+
 # Library
 
 This is a showcase application which is developed to demonstrate the capabilities and features of both the CUBA Platform and the CUBA Studio.
